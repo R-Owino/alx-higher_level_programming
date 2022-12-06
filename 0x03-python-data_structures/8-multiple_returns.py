@@ -2,10 +2,7 @@
 
 def multiple_returns(sentence):
     count = len(sentence)
-    if count > 0:
-        first_char = sentence[0]
-    else:
-        return ('None')
+    first_char = sentence[0] if count > 0 else 'None'
 
     sentence_tuple = count, first_char
     return sentence_tuple
