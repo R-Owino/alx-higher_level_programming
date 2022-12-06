@@ -5,10 +5,11 @@ def multiple_returns(sentence):
     if count > 0:
         first_char = sentence[0]
     else:
-        'None'
+        return ('None')
 
     sentence_tuple = count, first_char
     return sentence_tuple
+
 
 if __name__ == "__main__":
     multiple_returns()
