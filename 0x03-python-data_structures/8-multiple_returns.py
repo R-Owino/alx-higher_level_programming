@@ -6,7 +6,3 @@ def multiple_returns(sentence):
 
     sentence_tuple = count, first_char
     return sentence_tuple
-
-
-if __name__ == "__main__":
-    multiple_returns()
