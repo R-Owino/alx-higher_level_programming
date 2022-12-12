@@ -6,7 +6,3 @@ def no_c(my_string):
         if character not in 'Cc':
             str_new += character
     return str_new
-
-
-if __name__ == "__main__":
-    no_c()
