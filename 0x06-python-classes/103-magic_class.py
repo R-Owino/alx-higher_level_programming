@@ -3,6 +3,7 @@
 
 import math
 
+
 class MagicClass:
     """Reps a circle"""
 
@@ -14,7 +15,7 @@ class MagicClass:
         """
 
         self.__radius = 0
-        if not isinstance(radius, int) and not isinstance(radius, float):
+        if type(radius) is not int or type(radius) is not float:
             raise TypeError('radius must be a number')
         self.__radius = radius
 
