@@ -3,18 +3,25 @@
 
 
 class Rectangle:
-    """Defines a rectangle"""
+    """Defines a rectangle
+
+    Args:
+        number_of_instances = counts the number of objects in existance
+
+    """
 
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Creates a rectangle
+
         Args:
             width (int): width of the rectangle
             height (int): height of the rectangle
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -48,27 +55,25 @@ class Rectangle:
 
     def perimeter(self):
         """Returns the perimeter of the rectangle"""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
         else:
             return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Prints the rectangle using # character"""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ("")
 
-        return '\n'.join('#' * self.width for _ in range(self.height))
+        return '\n'.join('#' * self.__width for _ in range(self.__height))
 
     def __repr__(self):
         """Returns a string rep'n of the rectangle
             to recreate a new instance using eval()
         """
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return (rect)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Deletes class instance"""
+        """Prints to STDOUT when an instance is deleted"""
         Rectangle.number_of_instances -= 1
         print('Bye rectangle...')
