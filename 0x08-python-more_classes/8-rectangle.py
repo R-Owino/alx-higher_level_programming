@@ -64,10 +64,15 @@ class Rectangle:
 
     def __str__(self):
         """Prints the rectangle using # character"""
+        rect = ''
         if self.__width == 0 or self.__height == 0:
-            return ("")
-
-        return '\n'.join(str(self.print_symbol) * self.width for _ in range(self.height))
+            return ""
+        
+        for i in range(self.height):
+            rect += str(self.print_symbol) * self.width
+            if i + 1 < self.height:
+                rect += '\n'
+            return rect
 
     def __repr__(self):
         """Returns a string rep'n of the rectangle
@@ -79,3 +84,23 @@ class Rectangle:
         """Prints to STDOUT when an instance is deleted"""
         Rectangle.number_of_instances -= 1
         print('Bye rectangle...')
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Returns the biggest rectangle based on area
+
+        Args:
+            rect_1: instance of Rectangle
+            rect_2: instance of Rectangle
+
+        Raises:
+            TypeError if either rect_1 or rect_2 are not Rectangle instances
+        """
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        return rect_2
