@@ -8,7 +8,7 @@ def is_same_class(obj, a_class):
 
     Args:
         obj: instance of a class
-        class: the class
+        a_class: the class
     '''
 
     if type(obj) == a_class:
