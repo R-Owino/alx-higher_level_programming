@@ -30,3 +30,12 @@ class Student:
             return {key: getattr(self, key)
                     for key in attrs if hasattr(self, key)}
         return self.__dict__
+
+    def reload_from_json(self, json):
+        '''Replaces all attributes of Student instance
+        json(dict): contains what will replace the variable
+                    key is publict attribute name
+                    value is value of the public attribute
+        '''
+        for key, val in json.items:
+            setattr(self, key, val)
