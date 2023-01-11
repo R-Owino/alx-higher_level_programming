@@ -37,5 +37,5 @@ class Student:
                     key is publict attribute name
                     value is value of the public attribute
         '''
-        for key, val in json.items:
+        for key, val in json.items():
             setattr(self, key, val)
