@@ -95,43 +95,22 @@ class Rectangle(Base):
             [print("#", end="") for w in range(self.width)]
             print("")
 
-    def override_str(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         '''overrides the __str__ method and updates the rectangle
 
         Args:
             *args(int): id, height, width, x and y
             **kwargs(dict): key/value pair of attributes
         '''
-        if args and len(args) != 0:
-            a = 0
-            for arg in args:
-                if a == 0:
-                    if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif a == 1:
-                    self.width = arg
-                elif a == 2:
-                    self.height = arg
-                elif a == 3:
-                    self.x = arg
-                elif a == 4:
-                    self.y = arg
-                a += 1
-
-        elif kwargs and len(kwargs) != 0:
+        if len(args) == 0:
             for key, val in kwargs.items():
-                if key == "id":
-                    if val is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = val
-                elif key == "width":
-                    self.width = val
-                elif key == "height":
-                    self.height = val
-                elif key == "x":
-                    self.x = val
-                elif key == "y":
-                    self.y = val
+                self.__setattr__(key, val)
+            return
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
