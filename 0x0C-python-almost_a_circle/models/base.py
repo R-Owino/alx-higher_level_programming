@@ -42,7 +42,7 @@ class Base:
         Args:
             list_objs(list): list of instances inheriting from Base
         '''
-        filename = cls.__name _ + '.json'
+        filename = cls.__name__ + '.json'
         with open(filename, 'w') as f:
             if list_objs is None:
                 f.write('[]')
