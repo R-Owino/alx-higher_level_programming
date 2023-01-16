@@ -15,7 +15,7 @@ class Rectangle(Base):
             x(int): an attribute of the Rectangle
             y(int): an attribute of the Rectangle
             id(int): public instance attribute
-        
+
         Raises:
             TypeError if: - width or height is not an int
                           - x or y is not int
