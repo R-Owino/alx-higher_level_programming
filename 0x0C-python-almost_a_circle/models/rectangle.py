@@ -97,7 +97,7 @@ class Rectangle(Base):
 
     def override_str(self, *args, **kwargs):
         '''overrides the __str__ method and updates the rectangle
-        
+
         Args:
             *args(int): id, height, width, x and y
             **kwargs(dict): key/value pair of attributes
