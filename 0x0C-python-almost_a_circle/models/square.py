@@ -38,8 +38,9 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         '''overrides the __str__ method and updates the rectangle
         Args:
-            *args(int): id, height, width, x and y
-            **kwargs(dict): key/value pair of attributes
+            *args(int): id, size, x and y in that order
+            **kwargs(dict): key/value pair of attributes, skipped if *args
+                            exists and is not empty
         '''
         if len(args) == 0:
             for key, val in kwargs.items():
