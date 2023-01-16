@@ -107,7 +107,7 @@ class Rectangle(Base):
         '''overrides the __str__ method and updates the rectangle
 
         Args:
-            *args(int): id, height, width, x and y
+            *args(int): arguments id, width, height, x and y in that order
             **kwargs(dict): key/value pair of attributes
         '''
         if len(args) == 0:
@@ -122,3 +122,12 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass
+
+    def to_dictionary(self):
+        '''Returns the dict rep'n of a Rectangle'''
+
+        return {'id': getattr(self, "id"),
+                'width': getattr(self, "width"),
+                'height': getattr(self, "height"),
+                'x': getattr(self, "x"),
+                'y': getattr(self, "y")}
