@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 '''Module that defines a class Base'''
+
 import json
+import csv
 
 
 class Base:
@@ -84,5 +86,46 @@ class Base:
             with open(filename, 'r') as f:
                 list_dict = Base.from_json_string(f.read())
                 return [cls.create(**d) for d in list_dict]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''Serializes in csv
+        Args:
+            list_objs(list): list of instances inheriting from Base
+        '''
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline="") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == 'Rectangle':
+                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    fieldnames = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''Deserializes in csv
+
+        Returns:
+            Empty list if file does not exist otherwise list of
+            instantiated classes
+        '''
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    fieldnames = ['id', 'size', 'x', 'y']
+                list_dicts = csv.DictReader(f, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
