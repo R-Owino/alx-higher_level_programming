@@ -2,6 +2,6 @@
 -- ordered by temperature (descending)
 SELECT TOP 3 city, AVG(value) as avg_temp
 FROM temperatures
-WHERE month = 8 AND MONTH = 7
+WHERE month = 8 OR MONTH = 7
 GROUP BY city
 ORDER BY avg_temp DESC;
