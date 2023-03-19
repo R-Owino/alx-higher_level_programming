@@ -14,7 +14,7 @@ if __name__ == "__main__":
     password = argv[2]
     database = argv[3]
 
-    # connect to MySQL server running on lovalhost at port 3306
+    # connect to MySQL server running on localhost at port 3306
     db = MySQLdb.connect(
             host="localhost", port=3306, user=username,
             password=password, database=database)
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # cursor object
     cursor = db.cursor()
 
-    # SQL query to fetch all states from states table
+    # SQL query to fetch all states starting with N
     cursor.execute("""SELECT * FROM states
             WHERE name LIKE BINARY 'N%'
             ORDER BY id ASC""")
