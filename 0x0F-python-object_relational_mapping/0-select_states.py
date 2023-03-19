@@ -10,14 +10,14 @@ script that lists all states from the database hbtn_0e_0_usa
 
 if __name__ == "__main__":
     # Getting username, password and database name from commandline args
-    username = argv[1]
-    password = argv[2]
-    database = argv[3]
+    # username = argv[1]
+    # password = argv[2]
+    # database = argv[3]
 
     # connect to MySQL server running on lovalhost at port 3306
     db = MySQLdb.connect(
-            host="localhost", port=3306, user=username,
-            password=password, database=database)
+            host="localhost", port=3306, user=argv[1],
+            password=argv[2], database=argv[3])
 
     # cursor object
     cursor = db.cursor()
