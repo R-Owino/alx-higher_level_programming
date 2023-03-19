@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 
-import MySQLdb
-from sys import argv
-
 """
 script that lists all states starting wit N from the database hbtn_0e_0_usa
 """
+import MySQLdb
+from sys import argv
+
 
 if __name__ == "__main__":
     # Getting username, password and database name from commandline args
