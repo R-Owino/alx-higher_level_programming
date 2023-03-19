@@ -33,9 +33,9 @@ if __name__ == "__main__":
     # fetch all rows
     rows = cursor.fetchall()
 
-    # print the states
-    for row in rows:
-        print(row)
+    # print the cities by states
+    city = [row[0] for row in rows]
+    print(*city, sep=", ")
 
     # close cursor and database connections
     cursor.close()
