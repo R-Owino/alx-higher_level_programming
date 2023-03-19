@@ -26,7 +26,8 @@ if __name__ == "__main__":
 
     # SQL query to fetch all states with given name
     query = """SELECT * FROM states
-            WHERE name='{}' ORDER BY id""".format(state_name)
+            WHERE name LIKE BINARY '{}'
+            ORDER BY id""".format(state_name)
     cursor.execute(query)
 
     # fetch all rows
