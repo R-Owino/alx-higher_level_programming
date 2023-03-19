@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # cursor object
     cursor = db.cursor()
 
-    # SQL query to fetch all states from states table
+    # SQL query to fetch all states starting with N
     cursor.execute("""SELECT * FROM states
             WHERE name LIKE BINARY 'N%'
             ORDER BY id ASC""")
