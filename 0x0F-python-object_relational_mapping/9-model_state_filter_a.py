@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-script that lists all State objects from the database hbtn_0e_6_usa
+lists all State objects from the database hbtn_0e_6_usa that contain a
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
