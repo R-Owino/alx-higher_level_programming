@@ -6,7 +6,7 @@ Contains the class definition of a State and an of instance Base
 
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, MetaData
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import backref
 from relationship_city import Base, City
@@ -22,3 +22,4 @@ class State(Base):
     name = Column(String(128), nullable=False)
     cities = relationship("City", cascade="all, delete",
                           backref=backref("state"))
+
