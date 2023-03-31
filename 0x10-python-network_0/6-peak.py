@@ -1,15 +1,9 @@
 #!/usr/bin/python3
-# Module that defines a function find_peak
+"""Defines a peak-finding algorithm."""
+
 
 def find_peak(list_of_integers):
-    """
-    Finds a peak in a list of unsorted integers
-    There may be more than 1 peak in the list
-
-    Arguments:
-        list_of_integers (list): the unsorted list
-    """
-
+    """Finds a peak in a list of unsorted integers."""
     if list_of_integers == []:
         return None
 
