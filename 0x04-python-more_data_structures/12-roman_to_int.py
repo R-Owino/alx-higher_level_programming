@@ -18,13 +18,14 @@ def value(roman_symbol):
         return 1000
     return 0
 
+
 def roman_to_int(roman_string):
     res = 0
     i = 0
 
     while (i < len(roman_string)):
-        # getting the value of the symbol
-        s1 =  value(roman_string[i])
+        # getting value of symbol roman_string[i]
+        s1 = value(roman_string[i])
 
         if (i + 1 < len(roman_string)):
             s2 = value(roman_string[i + 1])
@@ -38,5 +39,5 @@ def roman_to_int(roman_string):
         else:
             res = res + s1
             i = i + 1
-    
+
     return res
