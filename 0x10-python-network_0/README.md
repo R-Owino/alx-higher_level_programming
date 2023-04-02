@@ -20,7 +20,7 @@ Learning objectives:
 - How to make a request with cURL
 - What happens when you type google.com in your browser (Application level)
 
---
+---
 
 ### Resources
 
